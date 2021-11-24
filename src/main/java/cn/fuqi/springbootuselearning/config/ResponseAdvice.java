@@ -27,10 +27,6 @@ public class ResponseAdvice implements ResponseBodyAdvice {
         if (body instanceof ResultVo<?>) {
             return body;
         }
-        // 单独对String类型的返回数据进行处理方式一
-        if (body instanceof String) {
-            return JSON.toJSONString(new ResultVo<>(body));
-        }
 
         return new ResultVo<>(body);
     }

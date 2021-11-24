@@ -116,6 +116,6 @@ server:
 
 ![image-20211121214107134](../images/使用yml多环境配置和创建多环境profile打包/image-002.png)
 
-​		当勾选上指定profile进行compile之后, classes目录中的配置文件就会是指定profile对应的配置文件,例如指定test,小狗如图所示:
+​		当勾选上指定profile进行compile之后, classes目录中的配置文件就会是指定profile对应的配置文件,例如指定test,效果如图所示:
 
 ![image-20211121214656699](../images/使用yml多环境配置和创建多环境profile打包/image-003.png)

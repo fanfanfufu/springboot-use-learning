@@ -8,4 +8,6 @@ package cn.fuqi.springbootuselearning.common;
 public class CommonConstant {
 
     public static final int SUCCESS_CODE=200;
+
+    public static final int ERROR_CODE=500;
 }

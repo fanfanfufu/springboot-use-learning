@@ -1,4 +1,4 @@
-package cn.fuqi.springbootuselearning.config;
+package cn.fuqi.springbootuselearning.config.reponse;
 
 import cn.fuqi.springbootuselearning.common.ResultVo;
 import com.alibaba.fastjson.JSON;
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @description
  */
 @RestControllerAdvice
-public class ResponseAdvice implements ResponseBodyAdvice {
+public class ResponseAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public boolean supports(MethodParameter returnType, Class converterType) {

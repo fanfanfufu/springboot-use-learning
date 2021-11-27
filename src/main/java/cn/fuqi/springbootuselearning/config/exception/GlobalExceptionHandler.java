@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author FuQi
  * @date 2021/11/26 23:12
@@ -24,10 +26,9 @@ public class GlobalExceptionHandler {
      * @return
      */
     @ExceptionHandler({ApplicationException.class})
-    public ResultVo<?> handleApplicationException(ApplicationException exception) {
-        ServletRequestAttributes requestAttributes =(ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+    public ResultVo<?> handleApplicationException(ApplicationException exception, HttpServletRequest request) {
         log.error("request = {} occur an application exception,\r\ncode={}, \r\nmessage: {}",
-                requestAttributes.getRequest().getRequestURI(), exception.getCode(), exception.getErrorMsg());
+                request.getRequestURI(), exception.getCode(), exception.getErrorMsg());
         return new ResultVo<>(exception.getCode(), exception.getErrorMsg());
     }
 
@@ -38,10 +39,9 @@ public class GlobalExceptionHandler {
      * @return
      */
     @ExceptionHandler({Exception.class})
-    public ResultVo<?> handleException(Exception exception) {
-        ServletRequestAttributes requestAttributes =(ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+    public ResultVo<?> handleException(Exception exception, HttpServletRequest request) {
         log.error("request = {} occur an exception, \r\nmessage type = {}, \r\nmessage content: {}",
-                requestAttributes.getRequest().getRequestURI(), exception.getClass(), exception.getLocalizedMessage());
+                request.getRequestURI(), exception.getClass(), exception.getLocalizedMessage());
         return new ResultVo<>(CommonConstant.ERROR_CODE, exception.getMessage());
     }
 }

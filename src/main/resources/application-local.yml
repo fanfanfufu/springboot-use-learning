@@ -1,0 +1,15 @@
+server:
+  port: 10121
+  servlet:
+    context-path: /api
+
+
+# swagger的相关配置
+swagger:
+  enable: true
+# knife4j相关配置
+knife4j:
+  basic:
+    username: admin
+    password: abc147efg258xyz369
+    enable: true

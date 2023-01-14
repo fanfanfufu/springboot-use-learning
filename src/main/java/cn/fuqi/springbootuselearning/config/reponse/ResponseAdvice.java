@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @date 2021/11/24 22:19
  * @description
  */
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "cn.fuqi.springbootuselearning.controller")
 public class ResponseAdvice implements ResponseBodyAdvice<Object> {
 
     @Override

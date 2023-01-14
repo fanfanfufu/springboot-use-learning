@@ -1,5 +1,6 @@
 package cn.fuqi.springbootuselearning.config.swagger;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -18,9 +19,13 @@ import springfox.documentation.spring.web.plugins.Docket;
 @EnableOpenApi
 @Configuration
 public class SwaggerConfig {
+    @Value("${swagger.enable}")
+    private boolean enable;
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.OAS_30)
+                .enable(enable)
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("cn.fuqi.springbootuselearning.controller"))
